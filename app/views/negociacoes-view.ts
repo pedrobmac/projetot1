@@ -1,9 +1,9 @@
 import { Negociacoes } from "../models/negociacoes.js"
 import { View } from "./view.js"
 
-export class NegociacoesView extends View{
+export class NegociacoesView extends View<Negociacoes>{
 
-template(model: Negociacoes): string {
+    template(model: Negociacoes): string {
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -15,14 +15,14 @@ template(model: Negociacoes): string {
             </thead>
             <tbody>
                 ${model.lista().map(negociacao => {
-                    return `
+            return `
                         <tr>
                             <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
                             <td>${negociacao.quantidade}</td>
                             <td>${negociacao.valor}</td>
                         </tr>
                     `
-                }).join("")}
+        }).join("")}
             </tbody>
         </table>
         `
