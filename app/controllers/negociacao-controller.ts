@@ -14,13 +14,16 @@ export class NegociacaoController {
 
 
     constructor() {
-        this.inputData = document.querySelector("#data")
-        this.inputQuantidade = document.querySelector("#quantidade")
-        this.inputValor = document.querySelector("#valor")
+        this.inputData = document.querySelector("#data") as HTMLInputElement //casting explícito da forma recomendável
+        this.inputQuantidade = document.querySelector("#quantidade") as HTMLInputElement
+        this.inputValor = <HTMLInputElement>document.querySelector("#valor") //casting explícito de forma menos recomendável
         this.negociacoesView.update(this.negociacoes)
     }
 
     public adiciona(): void {
+        /*
+            Comentário de teste
+        */
         const negociacao = Negociacao.criaDe(
             this.inputData.value,
             this.inputQuantidade.value,
