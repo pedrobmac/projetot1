@@ -10,7 +10,7 @@ export class NegociacaoController {
     private inputQuantidade: HTMLInputElement
     private inputValor: HTMLInputElement
     private negociacoes = new Negociacoes()
-    private negociacoesView = new NegociacoesView("#negociacoesView", true)
+    private negociacoesView = new NegociacoesView("#negociacoesView")
     private mensagemView = new MensagemView("#mensagemView")
 
 
@@ -21,7 +21,7 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes)
     }
 
-    @logarTempoDeExecucao()
+    @logarTempoDeExecucao(true)
     public adiciona(): void {
         /*
             Comentário de teste
